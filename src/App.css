@@ -1,0 +1,399 @@
+:root {
+  --color0: #884A39;
+  --color1: #C38154;
+  --color2: #FFC26F;
+  --color3: #f9e0bb;
+}
+
+html{
+  overflow-x: hidden;
+}
+
+body{
+  background-color: #0f0f0f;
+  margin: 0;
+  padding: 0;
+  color: #f1f1f1;
+  font-family: "Suranna", serif;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.header{
+  height: 25vh;
+  width: 100vw;
+  position: relative;
+  z-index: -1;
+}
+
+.neon, .neon-rect, .neon-circ{
+  position: relative;
+  background: linear-gradient(45deg, var(--color2), var(--color3), var(--color2));
+  background-size: 600% 600%;
+  z-index: -1;
+  -webkit-animation: neonGlow 10s ease infinite;
+  -moz-animation: neonGlow 10s ease infinite;
+  animation: neonGlow 10s ease infinite;
+}
+
+.neon::after, .neon-rect::after, .neon-circ::after{
+  content: '';
+  position: absolute;
+  top: -10px; 
+  right: -10px; 
+  bottom: -10px; 
+  left: -10px;
+  z-index: -10;
+  background: linear-gradient(45deg, var(--color2), var(--color3), var(--color2));
+  animation: neonGlow 10s ease infinite;
+  background-size: 600%;
+  filter: blur(50px);
+  opacity: 0.2;
+}
+
+.neon::after{
+  opacity: 0.7;
+}
+
+.neon-circ::after{
+  filter: blur(30px);
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+@-webkit-keyframes neonGlow {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes neonGlow {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes neonGlow {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.header .head-logo-cont{
+  display: flex;
+  justify-content: flex-start;
+  align-items: end;
+  width: 95%;
+  margin-left: 5%;
+}
+
+.header .head-logo-cont div{
+  font-size: 2rem;
+  color: #0f0f0f;
+}
+
+.hero{
+  width: 100vw;
+  text-align: center;
+  position: relative;
+  height: max-content;
+}
+
+.hero .hero-pic{
+  position: relative;
+  height: 30vh;
+  width: auto;
+  border-radius: 50%;
+  z-index: 3;
+  margin-top: -10vh;
+}
+
+.hero .hero-pic::before{
+  content: '';
+  position: absolute;
+  top: 10px; 
+  right: 10px; 
+  height: 100%;
+  width: 100%;
+  z-index: -10;
+  background: linear-gradient(45deg, var(--color2), var(--color3), var(--color2));
+  background-size: 600%;
+  opacity: 0.7;
+}
+
+.hero .hero-border{
+  position: absolute;
+  left: 50vw;
+  transform: translateX(-50%);
+  top: -10vh;
+  z-index: -10;
+}
+
+.tag{
+  text-align: center;
+  width: 100vw;
+  font-size: 1.5rem;
+  line-height: 5vh;
+}
+
+.tag .tag-name{
+  font-family: "Lobster two", sans-serif;
+  background: linear-gradient(90deg, var(--color1), var(--color2),var(--color2), var(--color1),var(--color0));
+  height: 4rem;
+  -webkit-background-clip: text; 
+  display: inline-block;
+  -webkit-text-fill-color: transparent;
+}
+
+.tag .tag-name span{
+  color: var(--color3);
+  -webkit-text-fill-color: var(--color3);
+  text-shadow: 0 0 20px rgba(249, 224, 187,.7);
+}
+
+.tag .tag-line{
+  color: var(--color1);
+}
+
+@keyframes floatAnimation {
+  0% {
+      transform: translate(-50%,0) rotate(1deg);
+  }
+  50% {
+      transform: translate(-50%,-10px) rotate(-1deg);
+  }
+  100% {
+      transform: translate(-50%,0) rotate(1deg);
+  }
+}
+
+.ball-1{
+  height: 30vh;
+  width: 30vh;
+  z-index: -1;
+  border-radius: 50%;
+  position: absolute;
+  left: 10vw;
+  transform: translateX(-50%);
+  bottom: 20vh;
+  animation: floatAnimation 3s ease-in-out infinite;
+}
+
+.wire-1{
+  position: absolute;
+  left: calc(10vw - 4px);
+  top: 0;
+  height: 65vh;
+  width: 8px;
+  background: linear-gradient(0deg, var(--color2), var(--color3), var(--color2));
+  opacity: 0.7;
+  z-index: -2;
+}
+
+
+.ball-2 img{
+  height: 20vh;
+  width: 15vh;
+  z-index: -1;
+  position: absolute;
+  right: calc(15vw - 13vh);
+  bottom: 6vh;
+  animation: floatAnimation 3s ease-in-out infinite;
+}
+.wire-2{
+  position: absolute;
+  right: calc(15vw - 4px);
+  top: 0;
+  height: 79vh;
+  width: 6px;
+  background: linear-gradient(0deg, var(--color2), var(--color3), var(--color2));
+  z-index: -2;
+  opacity: 0.6;
+}
+
+.right-ball .leaf{
+  position: absolute;
+  width: calc(60vw - 2vh);
+  height: auto;
+  bottom: 16vh;
+  transform: translateY(50%);
+  right: calc(15vw + 10vh);
+}
+
+.intro{
+  width: 80vw;
+  padding: 5vw;
+  margin: calc(5vw - 2px);
+  border: 2px solid var(--color2);
+  margin-top: 30vh;
+  font-size: 1.2rem;
+  border-radius: 0 5vw;
+  box-shadow: 0 0 30px 0 rgba(249, 224, 187,.2);
+}
+
+.intro span{
+  background: linear-gradient(270deg, var(--color2), var(--color3));
+  -webkit-background-clip: text; 
+  display: inline-block;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(249, 224, 187,.4);
+}
+
+@keyframes flicker {
+  0% {
+      opacity: 0.9;
+  }
+  2%{
+    opacity: 0.1;
+  }
+  2.1%{
+    opacity: 0.9;
+  }
+  4%{
+    opacity: 0.4;
+  }
+  5% {
+      opacity: 1;
+  }
+  10% {
+      opacity: 0.9;
+  }
+  11%{
+    opacity: 1;
+  }
+}
+
+.flick {
+  animation: flicker 5s infinite alternate;
+}
+
+.edu{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.edu .book{
+  width: 300px;
+  height: 400px;
+  background-color: red;
+  border-left: 20px solid black;
+  border-radius: 0 30px 30px 0;
+  box-shadow: 10px 10px 0 0 var(--color1);
+  text-align: center;
+  padding: 10px;
+  max-width: 60vw;
+  max-height: 80vw;
+}
+
+.edu .book div{
+  background: linear-gradient(270deg, var(--color0),var(--color1));
+  -webkit-background-clip: text; 
+  display: inline-block;
+  -webkit-text-fill-color: transparent;
+}
+
+.edu img{
+  width: 50%;
+  margin: 0;
+}
+
+.skill-set{
+  margin-top: 30px;
+  width: 90vw;
+  margin-left: 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  transform: scale(80%);
+}
+
+.skill{
+  font-size: 1.2rem;
+  width: 350px;
+  min-width: 200px;
+  height: 500px;
+  margin: 5px;
+  line-height: 130%;
+  padding: 30px;
+}
+
+.skill div{
+  background: linear-gradient(270deg, var(--color0),var(--color1));
+  -webkit-background-clip: text; 
+  display: inline-block;
+  -webkit-text-fill-color: transparent;
+}
+.skill h1{
+  line-height: 120%;
+}
+
+.skill h4,h1{
+  font-family: "Lobster two", sans-serif;
+}
+
+@keyframes glow{
+  0%{
+    box-shadow: 0 0 0 0 rgba(255,0,0,.1);
+  }
+  20%{
+    box-shadow: 0 0 50px 0px rgba(255,0,0,.3), 0 0 100px 0 rgba(255,0,0,.1);
+  }
+  40%{
+    box-shadow: 0 0 0 0 rgba(255,0,0,.1);
+  }
+  60%{
+    box-shadow: 0 0 20px 0px rgba(255,0,0,.6),0 0 50px 0px rgba(255,0,0,.3), 0 0 100px 0 rgba(255,0,0,.1);
+  }
+  100%{
+    box-shadow: 0 0 0 0 rgba(255,0,0,.1);
+  }
+}
+
+
+.footer{
+  width: 100vw;
+  background-color: #343434;
+  height: 50vh;
+  margin-top: 10vh;
+  text-align: center;
+}
+
+.projects{
+  width: 100vw;
+  text-align: center;
+}
+
+.projects h1, .projects h2{
+  background: linear-gradient(270deg, var(--color0),var(--color1));
+  -webkit-background-clip: text; 
+  display: inline-block;
+  -webkit-text-fill-color: transparent;
+  font-size: 4rem;
+  font-family: "Lobster two", sans-serif;
+}
+
+.projects h2{
+  font-size: 1.8rem;
+  border-left: 10px solid var(--color1);
+  height: 2.3rem;
+  padding-left: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.projects .project-cont{
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.projects .project-cont .project{
+  height: 300px;
+  width: 300px;
+  background: linear-gradient(45deg, #343434, black);
+  border-radius: 0 30px;
+  text-align: left;
+  padding-left: 30px;
+  box-sizing: border-box;
+}
